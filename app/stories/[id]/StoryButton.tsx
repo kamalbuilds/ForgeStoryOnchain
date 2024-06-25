@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { makeTextNftMetadata } from "@/components/generatemetadata";
+import { makeTextNftMetadata } from "@/components/getnftmetadata";
 import { createCreatorClient } from '@zoralabs/protocol-sdk';
 import { zora } from "viem/chains";
 import { createPublicClient, http } from 'viem';
@@ -12,9 +12,7 @@ const StoryButton = ({
 }: any) => {
 
     const activeWallet = useActiveWallet();
-    console.log(activeWallet)
     const address= activeWallet?.getAccount()?.address;
-    console.log(address,"add")
 
     const mintStory = async () => {
         const publicClient = createPublicClient({
