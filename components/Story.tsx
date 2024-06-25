@@ -1,5 +1,4 @@
 "use client";
-
 import React, {useEffect, useState} from 'react';
 import { Story as StoryType } from "../types/stories";
 import { Card, CardContent } from "@/components/ui/card"
@@ -31,6 +30,8 @@ const Story = ({story}: Props) => {
       setCurrent(api.selectedScrollSnap() + 1);
     })
   }, [api]);
+
+  console.log(story,"story")
 
   return (
     <div>

@@ -1,5 +1,5 @@
 // pinata.ts
-const PINATA_JWT = "{YOUR_PINATA_JWT}";
+const PINATA_JWT = process.env.NEXT_PUBLIC_PINATA_JWT;
 
 export async function pinFileWithPinata(file: File) {
   const data = new FormData();

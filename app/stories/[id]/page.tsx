@@ -3,8 +3,6 @@ import React from 'react';
 import { getAllStories, getStory } from "@/lib/getAllStories";
 import { notFound } from "next/navigation";
 import Story from "@/components/Story";
-import { makeTextNftMetadata } from "@/components/makeTextNftMetadata";
-import { createCreatorClient } from '@zoralabs/protocol-sdk';
 
 import StoryButton from './StoryButton';
 

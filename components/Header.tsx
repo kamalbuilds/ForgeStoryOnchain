@@ -2,7 +2,7 @@
 import { BookOpen, FilePen } from "lucide-react";
 import Link from "next/link";
 import { defineChain } from "thirdweb";
-import { base, baseSepolia } from "thirdweb/chains";
+import { base, baseSepolia, zora , zoraSepolia} from "thirdweb/chains";
 import { ConnectButton } from "thirdweb/react";
 import { createWallet } from "thirdweb/wallets";
 import { createThirdwebClient } from "thirdweb";
@@ -12,7 +12,7 @@ const Header = () => {
     clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT!
   });
 
-  const wallets = [createWallet("com.coinbase.wallet")];
+  const wallets = [createWallet("com.coinbase.wallet") , createWallet("io.metamask")];
 
   return (
     <header className="relative p-4 lg:p-8 bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg flex items-center justify-between">
@@ -38,7 +38,7 @@ const Header = () => {
         <ConnectButton
           client={client}
           wallets={wallets}
-          chains={[defineChain(baseSepolia), defineChain(base)]}
+          chains={[defineChain(baseSepolia), defineChain(base), defineChain(zora), defineChain(zoraSepolia)]}
           connectButton={{
             label: "Connect",
             className:
