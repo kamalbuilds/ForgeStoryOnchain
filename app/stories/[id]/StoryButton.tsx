@@ -12,9 +12,9 @@ const StoryButton = ({
 }: any) => {
 
     const activeWallet = useActiveWallet();
-    const { address } = useActiveAccount();
-    console.log("Active Wlalet", activeWallet, address);
-
+    console.log(activeWallet)
+    const address= activeWallet?.getAccount()?.address;
+    console.log(address,"add")
 
     const mintStory = async () => {
         const publicClient = createPublicClient({
@@ -43,13 +43,11 @@ const StoryButton = ({
                 tokenMetadataURI: "ipfs://DUMMY/token.json",
             },
             // account to execute the transaction (the creator)
-            account: address!
-            ,
+            account: address!,
             // how many tokens to mint to the creator upon token creation
         });
-        await tx.wait();
 
-        console.log(`Token minted! Transaction hash: ${tx.hash}`);
+        console.log(`Token minted! Transaction hash: ${tx}`);
     };
 
     return (
