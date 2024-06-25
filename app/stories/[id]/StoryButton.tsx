@@ -8,7 +8,7 @@ import { createPublicClient, http } from 'viem';
 import { useActiveWallet, useSendTransaction } from 'thirdweb/react';
 import { Button } from '@/components/ui/button';
 import { createThirdwebClient, getContract, prepareContractCall } from 'thirdweb';
-import { zora, zoraSepolia } from 'thirdweb/chains';
+import { zoraSepolia } from 'thirdweb/chains';
 
 const StoryButton = ({ story }: any) => {
   const activeWallet = useActiveWallet();
@@ -112,11 +112,14 @@ const client = createThirdwebClient({
       console.log(transaction, "transaction")
       
   
-    sendTransaction(transaction);
+    const sendit = await sendTransaction(transaction);
+    console.log(sendit);
   };
 
   return (
-    <Button onClick={mintStory}>Mint Story</Button>
+    <div className="flex flex-col items-center justify-center py-4">
+    <Button onClick={mintStory} className='bg-gradient-to-r from-pink-500 to-rose-500 p-4' >Mint This Story</Button>
+    </div>
   );
 };
 
