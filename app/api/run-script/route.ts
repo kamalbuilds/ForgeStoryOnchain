@@ -5,7 +5,6 @@ import g from "@/lib/gptScriptInstance";
 const script = "app/api/run-script/story-book.gpt";
 
 export async function POST(request: NextRequest) {
-  // to get the body we do
   const { story, pages, path } = await request.json();
 
   const opts: RunOpts = {
