@@ -9,17 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@gptscript-ai/gptscript": "^0.8.3",
+    "@gptscript-ai/gptscript": "^0.8.5",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "ethers": "5",
     "lucide-react": "^0.396.0",
     "next": "14.2.4",
+    "pino-pretty": "^11.2.1",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "thirdweb": "^5"
   },
   "devDependencies": {
     "@types/node": "^20",

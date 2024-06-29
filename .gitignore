@@ -15,9 +15,11 @@
 
 # production
 /build
+bun.lockb
 
 # misc
 .DS_Store
+.env
 *.pem
 
 # debug
