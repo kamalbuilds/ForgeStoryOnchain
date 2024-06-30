@@ -8,37 +8,43 @@ import { createWallet } from "thirdweb/wallets";
 import { createThirdwebClient } from "thirdweb";
 
 const Header = () => {
+  const client = createThirdwebClient({
+    clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT!
+  });
 
- const client = createThirdwebClient({
-  clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT!
- });
- 
-  const wallets = [
-    createWallet("com.coinbase.wallet")
-  ]
+  const wallets = [createWallet("com.coinbase.wallet")];
+
   return (
-    <header className="relative p-8 lg:p-16 text-center bg-gradient-to-r from-purple-600 to-blue-500">
-      <Link href="/">
-        <h1 className="text-4xl lg:text-6xl font-bold text-white">ForgeStoryonChain</h1>
-        <div className="flex justify-center items-center whitespace-nowrap space-x-5 text-xl lg:text-3xl mt-4">
-          <h2 className="text-white">Bring your stories on Chain</h2>
-          <div className="relative">
-            <div className="absolute bg-purple-700 -left-2 -top-1 -bottom-1 -right-2 md:-left-3 md:-top-0 md:-bottom-0 md:-right-3 -rotate-1 transform-gpu" />
-            <p className="relative text-white">To life!</p>
+    <header className="relative p-4 lg:p-8 bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg flex items-center justify-between">
+      <Link href="/" className="absolute left-4 lg:left-8">
+        <h1 className="text-3xl lg:text-5xl font-bold text-white">ForgeStoryonChain</h1>
+      </Link>
+      <div className="flex-1 flex justify-center">
+        <div className="text-center">
+          <h2 className="text-lg lg:text-2xl text-white">Bring your stories to Life!</h2>
+          <div className="relative mt-2">
+            <div className="absolute bg-purple-700 inset-0 transform -rotate-1 rounded-md" />
+            <p className="relative text-white px-2">By minting them onchain</p>
           </div>
         </div>
-      </Link>
-      <div className="absolute top-5 right-5 flex space-x-4">
+      </div>
+      <div className="absolute right-4 lg:right-8 flex space-x-2 lg:space-x-4">
         <Link href="/">
-          <FilePen className="h-8 w-8 lg:w-10 lg:h-10 mx-auto text-white mt-10 border border-white p-2 rounded-md hover:bg-white hover:text-purple-500 transition duration-300 ease-in-out cursor-pointer" />
+          <FilePen className="h-6 w-6 lg:h-8 lg:w-8 text-white border border-white p-1 rounded-md hover:bg-white hover:text-purple-500 transition duration-300 ease-in-out cursor-pointer" />
         </Link>
         <Link href="/stories">
-          <BookOpen className="h-8 w-8 lg:w-10 lg:h-10 mx-auto text-white mt-10 border border-white p-2 rounded-md hover:bg-white hover:text-purple-500 transition duration-300 ease-in-out cursor-pointer" />
+          <BookOpen className="h-6 w-6 lg:h-8 lg:w-8 text-white border border-white p-1 rounded-md hover:bg-white hover:text-purple-500 transition duration-300 ease-in-out cursor-pointer" />
         </Link>
-        <ConnectButton client={client} wallets={wallets} chains={[defineChain(baseSepolia), defineChain(base)]} connectButton={{
-          label: "Connect with Coinbase Smart Wallet",
-          className: "bg-white text-purple-500 px-4 py-2 rounded-md hover:bg-purple-500 hover:text-white transition duration-300 ease-in-out"
-        }}/>
+        <ConnectButton
+          client={client}
+          wallets={wallets}
+          chains={[defineChain(baseSepolia), defineChain(base)]}
+          connectButton={{
+            label: "Connect",
+            className:
+              "bg-white text-purple-500 px-3 py-1 lg:px-4 lg:py-2 rounded-md hover:bg-purple-500 hover:text-white transition duration-300 ease-in-out"
+          }}
+        />
       </div>
     </header>
   );
