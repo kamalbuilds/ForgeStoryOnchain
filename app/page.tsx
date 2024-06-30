@@ -13,7 +13,7 @@ export default function Home() {
         >
           <Image src={logo} height={170} alt="logo" />
           <Button asChild className="px-20 bg-purple-700 p-10 text-xl">
-            <Link href="/stories">Explore Story Library</Link>
+            <Link href="/stories">Explore all Stories</Link>
           </Button>
         </div>
         {/* Story Writer */}

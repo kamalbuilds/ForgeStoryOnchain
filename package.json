@@ -22,7 +22,7 @@
     "react-dom": "^18",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "thirdweb": "^5"
+    "thirdweb": "^5.31.0"
   },
   "devDependencies": {
     "@types/node": "^20",
